@@ -20,9 +20,23 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 /*  Middlewares */
-app.use(cors());
+// app.use(cors());
+// app.use(express.json());
+// app.use(express.urlencoded({ extended: true })); //  optional but recommended
+
+app.use(cors({
+  origin: [
+    "http://localhost:5173",          // local frontend (Vite)
+    "http://localhost:3000",          // local frontend (CRA)
+    "https://your-frontend.vercel.app" // Vercel frontend
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
+
 app.use(express.json());
-app.use(express.urlencoded({ extended: true })); //  optional but recommended
+app.use(express.urlencoded({ extended: true }));
+
 
 /*  Static uploads */
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
