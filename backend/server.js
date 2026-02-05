@@ -28,7 +28,7 @@ app.use(cors({
   origin: [
     "http://localhost:5173",          // local frontend (Vite)
     "http://localhost:3000",          // local frontend (CRA)
-    "https://your-frontend.vercel.app" // Vercel frontend
+    "https://homeservices-frontend-seven.vercel.app" // Vercel frontend
   ],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
